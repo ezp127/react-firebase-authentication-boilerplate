@@ -9,6 +9,7 @@ import Signup from './Signup'
 import Login from './Login'
 import ForgotPassword from './ForgotPassword'
 import Dashboard from './Dashboard'
+import UpdateProfile from './UpdateProfile'
 
 export default function App() {
     return (        
@@ -20,10 +21,11 @@ export default function App() {
                 <Router>
                     <AuthProvider>
                         <Switch>
-                            <PrivateRoute exact path="/" component={ Dashboard } />
                             <Route path="/signup" component={ Signup } />
                             <Route path="/forgot-password" component={ ForgotPassword } />
                             <Route path="/login" component={ Login } />
+                            <PrivateRoute exact path="/" component={ Dashboard } />
+                            <PrivateRoute exact path="/update-profile" component={ UpdateProfile } />
                             <Route path='*' component={ PageNotFound } />
                         </Switch>
                     </AuthProvider>

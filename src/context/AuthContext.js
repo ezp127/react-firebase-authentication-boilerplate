@@ -37,12 +37,17 @@ export function AuthProvider(props) {
         return auth.sendPasswordResetEmail(email)
     }
 
+    function updateEmail(email) {
+        return currentUser.updateEmail(email)
+    }
+
     const value = {
         currentUser,
         signUp,
         logIn,
         logOut,
-        resetPassword
+        resetPassword,
+        updateEmail
     }
 
     return (

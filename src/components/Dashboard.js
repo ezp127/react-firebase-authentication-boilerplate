@@ -30,7 +30,7 @@ export default function Dashboard() {
                         E-mail: <strong>{ currentUser.email }</strong>
                     </div>
                     <div className="my-2">
-                        <Link to="/profile" className="btn btn-primary">Update Profile</Link>
+                        <Link to="/update-profile" className="btn btn-primary">Update Profile</Link>
                     </div>
                 </Card.Body>
             </Card>
