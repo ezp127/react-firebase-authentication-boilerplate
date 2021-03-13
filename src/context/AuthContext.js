@@ -21,13 +21,18 @@ export function AuthProvider(props) {
         return unsubscribe
     }, [])
 
+    function logIn(email, password) {
+        return auth.signInWithEmailAndPassword(email, password)
+    }
+
     function signUp(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
     const value = {
         currentUser,
-        signUp
+        signUp,
+        logIn
     }
 
     return (
