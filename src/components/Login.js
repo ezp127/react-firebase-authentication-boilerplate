@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { Alert, Button, Card, Form } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 
@@ -28,28 +27,26 @@ export default function Login() {
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="mb-2 text-center">Log In</h2>
-                    { error && <Alert variant="danger">{ error }</Alert> }
-                    <Form onSubmit={ handleSubmit }>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" ref={ emailRef } required />
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={ passwordRef } required />
-                        </Form.Group>
-                        <Button type="submit" disabled={ loading } className="w-100">Log In</Button>
-                    </Form>
-                    <div className="w-100 mt-3 text-center">
-                        <Link to="/forgot-password">Forgot password?</Link>
-                    </div>  
-                </Card.Body>
-            </Card>
-            <div className="w-100 mt-2 text-center">
-                Need an account? <Link to="/signup">Sign Up</Link>
+            <h1 className="page-title">Log In</h1>
+            { error && <div className="alert alert-danger">{ error }</div> }
+            <div className="box bg-white">
+                <form onSubmit={ handleSubmit }>
+                    <div className="form-group">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input id="email" type="email" className="form-control" ref={ emailRef } required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input id="password" type="password" className="form-control" ref={ passwordRef } required />
+                    </div>
+                    <button type="submit" className="btn btn-primary w-full" disabled={ loading }>Log In</button>
+                </form>
+                <div className="text-center">
+                    <Link to="/forgot-password" className="link">Forgot password?</Link>
+                </div>
+            </div>
+            <div className="text-center">
+                Need an account? <Link to="/signup" className="link">Sign Up</Link>
             </div>  
         </>
     )

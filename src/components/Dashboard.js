@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { Alert, Button, Card } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 
 export default function Dashboard() {
@@ -22,21 +21,19 @@ export default function Dashboard() {
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="mb-2 text-center">Profile</h2>
-                    { error && <Alert variant="danger">{ error }</Alert> }
-                    <div className="my-2">
-                        E-mail: <strong>{ currentUser.email }</strong>
-                    </div>
-                    <div className="my-2">
-                        <Link to="/update-profile" className="btn btn-primary">Update Profile</Link>
-                    </div>
-                </Card.Body>
-            </Card>
-            <div className="w-100 mt-2 text-center">
-                <Button variant="link" onClick={handleLogOut}>Log Out</Button>
-            </div>  
+            <h1 className="page-title">Profile</h1>
+            { error && <div className="alert alert-danger">{ error }</div> }
+            <div className="box bg-white">
+                <div className="py-3">
+                    E-mail: <strong>{ currentUser.email }</strong>
+                </div>
+                <div className="py-3">
+                    <Link to="/update-profile" className="btn btn-primary">Update Profile</Link>
+                </div>
+            </div>
+            <div className="mt-2 text-center">
+                <button type="button" className="link" onClick={handleLogOut}>Log Out</button>
+            </div>
         </>
     )
 }

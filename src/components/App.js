@@ -1,5 +1,4 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
 import { AuthProvider } from '../context/AuthContext'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -12,12 +11,9 @@ import Dashboard from './Dashboard'
 import UpdateProfile from './UpdateProfile'
 
 export default function App() {
-    return (        
-        <Container 
-            className="d-flex align-items-center justify-content-center"
-            style={{ minHeight: '100vh' }}
-        >
-            <div className="w-100" style={{ maxWidth: '400px' }}>
+    return ( 
+        <main className="app-layout">
+            <section className="container app-container">
                 <Router>
                     <AuthProvider>
                         <Switch>
@@ -30,7 +26,7 @@ export default function App() {
                         </Switch>
                     </AuthProvider>
                 </Router>
-            </div>
-        </Container>
+            </section>
+        </main>
     )
 }

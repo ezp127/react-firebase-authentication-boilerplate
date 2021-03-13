@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { Alert, Button, Card, Form } from 'react-bootstrap'
 import { useAuth } from '../context/AuthContext'
 import { Link } from 'react-router-dom'
 
@@ -28,23 +27,21 @@ export default function ForgotPassword() {
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="mb-2 text-center">Password Reset</h2>
-                    { error && <Alert variant="danger">{ error }</Alert> }
-                    { message && <Alert variant="success">{ message }</Alert> }
-                    <Form onSubmit={ handleSubmit }>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" ref={ emailRef } required />
-                        </Form.Group>
-                        <Button type="submit" disabled={ loading } className="w-100">Reset Password</Button>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="w-100 mt-2 text-center">
-                <Link to="/login">Back to Login</Link>
-            </div>  
+            <h1 className="page-title">Password Reset</h1>
+            { error && <div className="alert alert-danger">{ error }</div> }
+            { message && <div className="alert alert-success">{ message }</div> }
+            <div className="box bg-white">
+                <form onSubmit={ handleSubmit }>
+                    <div className="form-group">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input id="email" type="email" className="form-control" ref={ emailRef } required />
+                    </div>
+                    <button type="submit" className="btn btn-primary w-full" disabled={ loading }>Reset Password</button>
+                </form>
+            </div>
+            <div className="text-center">
+                <Link to="/login" className="link">Back to Login</Link>
+            </div>
         </>
     )
 }
