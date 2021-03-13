@@ -29,10 +29,20 @@ export function AuthProvider(props) {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
+    function logOut() {
+        return auth.signOut()
+    }
+
+    function resetPassword(email) {
+        return auth.sendPasswordResetEmail(email)
+    }
+
     const value = {
         currentUser,
         signUp,
-        logIn
+        logIn,
+        logOut,
+        resetPassword
     }
 
     return (
